@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Caesar Cipher</string>
+    <string name="about">About</string>
 </resources>
