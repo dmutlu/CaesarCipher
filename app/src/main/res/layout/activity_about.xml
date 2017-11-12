@@ -6,16 +6,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context="edu.umbc.dmutlu1.caesarcipher.AboutActivity"
-        android:orientation="vertical"
-        app:layout_scrollFlags="enterAlways">
+        android:orientation="vertical">
 
-    <android.support.v7.widget.Toolbar
+            <android.support.v7.widget.Toolbar
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="?attr/colorPrimary"
             android:theme="?attr/actionBarTheme"
             android:minHeight="?attr/actionBarSize"
-            android:id="@+id/toolbar2"
+            android:id="@+id/toolbar_about"
             android:elevation="4dp"
             app:title="@string/about"
             app:navigationIcon="@mipmap/ic_launcher"
@@ -28,8 +27,7 @@
 
         <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                >
+                android:layout_height="wrap_content">
 
             <TextView
                     android:text="@string/team_caesar_salad"
@@ -91,5 +89,4 @@
                     android:padding="10dp"/>
         </android.support.constraint.ConstraintLayout>
     </ScrollView>
-
 </LinearLayout>
