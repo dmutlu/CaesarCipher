@@ -15,11 +15,13 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        /*Main Activity Toolbar*/
         Toolbar myToolbar = findViewById(R.id.toolbar);
         setSupportActionBar(myToolbar);
 
     }
 
+    /*Toolbar Overflow Menu*/
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
     {
