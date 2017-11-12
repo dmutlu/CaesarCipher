@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">Caesar Cipher</string>
     <string name="about">About</string>
+    <string name="team_caesar_salad">Team Caesar Salad</string>
+    <string name="team_members">Nicholas Belkoff, Derek Montgomery, Devin Mutlu, Ariel Rubio Perez, and Charlie Zepp</string>
+    <string name="desc_umbc_logo">UMBC Logo</string>
+    <string name="_2017">2017</string>
 </resources>
