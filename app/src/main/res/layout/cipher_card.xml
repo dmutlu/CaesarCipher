@@ -56,7 +56,7 @@
                     android:background="@android:color/transparent"
                     card_view:layout_constraintTop_toTopOf="parent"
                     android:layout_marginTop="8dp" android:layout_marginRight="16dp"
-                    card_view:layout_constraintRight_toRightOf="parent"/>
+                    card_view:layout_constraintRight_toRightOf="parent" android:tint="@color/colorPrimary"/>
             <TextView
                     android:text="TextView"
                     android:layout_width="wrap_content"

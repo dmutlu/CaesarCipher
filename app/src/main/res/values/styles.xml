@@ -13,4 +13,9 @@
     <style name="AppTheme.Overflow" parent="Widget.AppCompat.ActionButton.Overflow">
         <item name="android:tint">@android:color/white</item>
     </style>
+
+    <style name="AppTheme.Spinner" parent="@style/AppTheme">
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textSize">18sp</item>
+    </style>
 </resources>

@@ -20,7 +20,7 @@
             <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent" android:elevation="5dp">
                 <android.support.v7.widget.Toolbar
                         android:id="@+id/toolbar"
                         android:layout_height="wrap_content"
@@ -49,23 +49,26 @@
                             app:layout_constraintLeft_toLeftOf="parent">
                         <Spinner
                                 android:layout_width="wrap_content"
-                                android:layout_height="40dp" android:id="@+id/cipherSpinner"
+                                android:layout_height="40dp"
+                                android:id="@+id/cipherSpinner"
+                                android:theme="@style/AppTheme.Spinner"
                                 android:backgroundTint="@color/colorPrimary"
                                 android:entries="@array/ciphers"
                                 app:layout_constraintTop_toTopOf="parent"
                                 android:layout_weight="1"
-                                tools:layout_editor_absoluteX="25dp"/>
+                                tools:layout_editor_absoluteX="25dp" android:textAlignment="center"/>
                         <EditText
                                 android:layout_height="wrap_content"
                                 android:inputType="number"
                                 android:ems="10"
-                                android:id="@+id/editText"
+                                android:id="@+id/inputKey"
                                 android:gravity="center_horizontal"
                                 android:hint="@string/cipher_key"
                                 android:maxLines="1"
                                 android:layout_width="100dp"
                                 tools:layout_editor_absoluteY="-3dp" tools:layout_editor_absoluteX="270dp"
-                                android:layout_weight="1"/>
+                                android:layout_weight="1" android:maxLength="9"
+                        />
                     </LinearLayout>
                     <View
                             android:layout_width="0dp"

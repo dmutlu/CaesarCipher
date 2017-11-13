@@ -9,15 +9,18 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity
 {
+    private int userKey;
     private String userMsg;
     private String userMsgEncrypt;
+    private String userMsgDecrypt;
+    private String[] ciphers;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -25,8 +28,11 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ShiftCipher shiftCipher = new ShiftCipher();
+        Spinner actionSpinner = findViewById(R.id.cipherSpinner);
         EditText inputText = findViewById(R.id.inputText);
+        EditText inputKey = findViewById(R.id.inputKey);
         Button btnCipher = findViewById(R.id.button);
+        ciphers = getResources().getStringArray(R.array.ciphers);
 
         /*Main Activity Toolbar*/
         Toolbar myToolbar = findViewById(R.id.toolbar);
@@ -51,16 +57,21 @@ public class MainActivity extends AppCompatActivity
         mAdapter = new MyAdapter();
         mRecyclerView.setAdapter(mAdapter);
 
+        //Run button code.
         btnCipher.setOnClickListener(view ->
         {
             userMsg = inputText.getText().toString();
-            userMsgEncrypt = shiftCipher.cipher(userMsg, 5);
-
-            System.out.println(userMsg);
-            System.out.println(userMsgEncrypt);
-            System.out.println(shiftCipher.decipher(userMsgEncrypt, 5));
+            userKey = Integer.parseInt(inputKey.getText().toString());
+            if (actionSpinner.getSelectedItem().equals(ciphers[0]))
+            {
+                userMsgEncrypt = shiftCipher.cipher(userMsg, userKey);
+                makeToast(userMsgEncrypt);
+            } else if (actionSpinner.getSelectedItem().equals(ciphers[1]))
+            {
+                userMsgDecrypt = shiftCipher.decipher(userMsg, userKey);
+                makeToast(userMsgDecrypt);
+            }
         });
-
     }
 
     /*Toolbar Overflow Menu*/
@@ -77,11 +88,11 @@ public class MainActivity extends AppCompatActivity
         switch (item.getItemId())
         {
             case R.id.action_about:
-                {
-                    startActivity(new Intent(this, AboutActivity.class));
-                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-                    break;
-                }
+            {
+                startActivity(new Intent(this, AboutActivity.class));
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                break;
+            }
         }
         return false;
     }
