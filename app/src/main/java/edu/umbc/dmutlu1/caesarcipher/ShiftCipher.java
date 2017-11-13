@@ -17,10 +17,10 @@ public class ShiftCipher
             {
                 if (Character.isUpperCase(i))
                 {
-                    encryptedMsg.append((char) ((i - 65 + key) % 26) + 65); //65 is A in ASCII
+                    encryptedMsg.append((char) (((i - 65 + key) % 26) + 65)); //65 is A in ASCII
                 } else
                 {
-                    encryptedMsg.append((char) ((i - 97 + key) % 26) + 97);
+                    encryptedMsg.append((char) (((i - 97 + key) % 26) + 97));
                 } //97 is a in ASCII
 
             } else
