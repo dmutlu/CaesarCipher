@@ -82,16 +82,11 @@
             </LinearLayout>
         </android.support.design.widget.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>
-    <android.support.v4.widget.NestedScrollView
+    <android.support.v7.widget.RecyclerView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_behavior="android.support.design.widget.AppBarLayout$ScrollingViewBehavior">
-        <android.support.v7.widget.RecyclerView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:scrollbars="vertical"
-                android:id="@+id/recycleView" android:layout_weight="1"
-                app:layout_behavior="@string/appbar_scrolling_view_behavior">
-        </android.support.v7.widget.RecyclerView>
-    </android.support.v4.widget.NestedScrollView>
+            android:layout_height="wrap_content"
+            android:scrollbars="vertical"
+            android:id="@+id/recycleView" android:layout_weight="1"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+    </android.support.v7.widget.RecyclerView>
 </android.support.design.widget.CoordinatorLayout>

@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity
         // use this setting to improve performance if you know that changes
         // in content do not change the layout size of the RecyclerView
         mRecyclerView.setHasFixedSize(true);
+        mRecyclerView.setNestedScrollingEnabled(true);
 
         // use a linear layout manager
         mLayoutManager = new LinearLayoutManager(this);
@@ -54,11 +55,11 @@ public class MainActivity extends AppCompatActivity
         btnCipher.setOnClickListener(view ->
         {
             userMsg = inputText.getText().toString();
-            userMsgEncrypt = shiftCipher.cipher(userMsg, 4);
+            userMsgEncrypt = shiftCipher.cipher(userMsg, 0);
 
             System.out.println(userMsg);
             System.out.println(userMsgEncrypt);
-            System.out.println(shiftCipher.decipher(userMsgEncrypt, 4));
+            System.out.println(shiftCipher.decipher(userMsgEncrypt, 0));
         });
 
     }
