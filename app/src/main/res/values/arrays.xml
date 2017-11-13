@@ -2,5 +2,6 @@
 <resources>
     <string-array name="ciphers">
         <item>Caesar Cipher</item>
+        <item>Caesar Decipher</item>
     </string-array>
 </resources>
