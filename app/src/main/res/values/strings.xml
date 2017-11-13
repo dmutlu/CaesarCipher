@@ -5,4 +5,5 @@
     <string name="team_members">Nicholas Belkoff, Derek Montgomery, Devin Mutlu, Ariel Rubio Perez, and Charlie Zepp</string>
     <string name="desc_umbc_logo">UMBC Logo</string>
     <string name="_2017">2017</string>
+    <string name="input_hint">Tap to enter message</string>
 </resources>

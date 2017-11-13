@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
 public class MainActivity extends AppCompatActivity
 {
@@ -18,6 +20,10 @@ public class MainActivity extends AppCompatActivity
         /*Main Activity Toolbar*/
         Toolbar myToolbar = findViewById(R.id.toolbar);
         setSupportActionBar(myToolbar);
+        //End
+
+        Spinner cipherSpinner = findViewById(R.id.cipherSpinner);
+
 
     }
 
