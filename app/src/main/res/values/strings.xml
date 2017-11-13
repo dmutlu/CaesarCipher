@@ -6,4 +6,6 @@
     <string name="desc_umbc_logo">UMBC Logo</string>
     <string name="_2017">2017</string>
     <string name="input_hint">Tap to enter message</string>
+    <string name="run">Run</string>
+    <string name="cipher_key">Cipher Key</string>
 </resources>

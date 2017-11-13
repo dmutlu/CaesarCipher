@@ -54,11 +54,11 @@ public class MainActivity extends AppCompatActivity
         btnCipher.setOnClickListener(view ->
         {
             userMsg = inputText.getText().toString();
-            userMsgEncrypt = shiftCipher.cipher(userMsg, 0);
+            userMsgEncrypt = shiftCipher.cipher(userMsg, 5);
 
             System.out.println(userMsg);
             System.out.println(userMsgEncrypt);
-            System.out.println(shiftCipher.decipher(userMsgEncrypt, 0));
+            System.out.println(shiftCipher.decipher(userMsgEncrypt, 5));
         });
 
     }
