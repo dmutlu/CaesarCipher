@@ -5,4 +5,12 @@
     <string name="team_members">Nicholas Belkoff, Derek Montgomery, Devin Mutlu, Ariel Rubio Perez, and Charlie Zepp</string>
     <string name="desc_umbc_logo">UMBC Logo</string>
     <string name="_2017">2017</string>
+    <string name="input_hint">Tap to enter message</string>
+    <string name="run">Run</string>
+    <string name="cipher_key">Cipher Key</string>
+    <string name="share_message">Share Message</string>
+    <string name="remove_card">Remove Card</string>
+    <string name="toast_empty">Please enter a message and key.</string>
+    <string name="share_subject">My Encrypted Message</string>
+    <string name="share_extra_key">Use the key:</string>
 </resources>
