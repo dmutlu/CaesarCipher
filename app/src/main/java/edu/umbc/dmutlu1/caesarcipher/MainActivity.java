@@ -14,7 +14,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity implements ShareHandler
+public class MainActivity extends AppCompatActivity
 {
     private int userKey;
     private String userMsg;
@@ -58,20 +58,24 @@ public class MainActivity extends AppCompatActivity implements ShareHandler
         btnCipher.setOnClickListener(view ->
         {
             userMsg = inputText.getText().toString();
-            userKey = Integer.parseInt(inputKey.getText().toString());
-            if (inputText.getText().toString().isEmpty() && inputKey.getText().toString().isEmpty())
+
+            if (inputText.getText().toString().isEmpty() || inputKey.getText().toString().isEmpty())
             {
-                MakeToast("Empty.");
+                makeToast("Empty.");
             } else
             {
+                userKey = Integer.parseInt(inputKey.getText().toString());
+
                 if (actionSpinner.getSelectedItem().equals(ciphers[0]))
                 {
                     userMsgEncrypt = shiftCipher.cipher(userMsg, userKey);
-                    mAdapter.addMessage(new Message(userMsg,userMsgEncrypt));
+
+                    mAdapter.addMessage(new Message(userMsg,userMsgEncrypt, userKey));
                 } else if (actionSpinner.getSelectedItem().equals(ciphers[1]))
                 {
                     userMsgDecrypt = shiftCipher.decipher(userMsg, userKey);
-                    mAdapter.addMessage(new Message(userMsg,userMsgDecrypt));
+
+                    mAdapter.addMessage(new Message(userMsg,userMsgDecrypt, userKey));
                 }
             }
         });
@@ -100,12 +104,7 @@ public class MainActivity extends AppCompatActivity implements ShareHandler
         return false;
     }
 
-    public void ShareMessage(int i)
-    {
-
-    }
-
-    public void MakeToast(String str)
+    public void makeToast(String str)
     {
         Context context = getApplicationContext();
         //CharSequence text = getString(res);
