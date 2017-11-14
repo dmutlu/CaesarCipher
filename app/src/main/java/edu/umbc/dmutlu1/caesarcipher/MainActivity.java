@@ -48,6 +48,8 @@ public class MainActivity extends AppCompatActivity
         RecyclerView.LayoutManager mLayoutManager;
         MyAdapter mAdapter = new MyAdapter(this);
 
+        mAdapter.setHasStableIds(true);
+
         // use this setting to improve performance if you know that changes
         // in content do not change the layout size of the RecyclerView
         mRecyclerView.setHasFixedSize(true);
@@ -121,7 +123,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     /*Toaster*/
-    public void makeToast(int res)
+    private void makeToast(int res)
     {
         Context context = getApplicationContext();
         CharSequence text = getString(res);

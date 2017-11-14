@@ -44,21 +44,22 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>
         notifyDataSetChanged();
     }
 
-    public void removeMessage(int pos)
+    private void removeMessage(int pos)
     {
         dataSet.remove(pos);
         notifyDataSetChanged();
     }
 
-    public void shareMessage(int pos)
+    private void shareMessage(int pos)
     {
         Intent share = new Intent();
 
+        String shareMsg = activity.getString(R.string.share_extra_key) +
+                "\u0020" + dataSet.get(pos).getKey() + "\n" + "\n" + dataSet.get(pos).getCipherMessage();
+
         share.setAction(Intent.ACTION_SEND);
         share.putExtra(Intent.EXTRA_SUBJECT, activity.getString(R.string.share_subject));
-        share.putExtra(Intent.EXTRA_TEXT, activity.getString(R.string.share_extra_key)
-                + dataSet.get(pos).getKey());
-        share.putExtra(Intent.EXTRA_TEXT, dataSet.get(pos).getCipherMessage());
+        share.putExtra(Intent.EXTRA_TEXT, shareMsg);
         share.setType("text/plain");
 
         activity.startActivity(Intent.createChooser(share, "Send Cipher Message"));

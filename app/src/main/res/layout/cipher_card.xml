@@ -1,87 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:card_view="http://schemas.android.com/apk/res-auto"
-              xmlns:tools="http://schemas.android.com/tools"
-              android:orientation="vertical"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:tag="cipher card container" android:weightSum="1">
+<android.support.v7.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/cipher_card"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_gravity="center"
+        card_view:cardElevation="5dp"
+        card_view:cardUseCompatPadding="true"
+        card_view:cardBackgroundColor="@color/cardview_light_background"
+        card_view:cardCornerRadius="5dp"
+        android:layout_width="wrap_content"
+        android:minWidth="300dp"
+        android:layout_height="wrap_content">
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <android.support.v7.widget.CardView
-            android:id="@+id/cipher_card"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            card_view:cardElevation="5dp"
-            card_view:cardUseCompatPadding="true"
-            card_view:cardBackgroundColor="@color/cardview_light_background"
-            card_view:layout_constraintRight_toRightOf="parent"
-            card_view:layout_constraintLeft_toLeftOf="parent"
-            card_view:layout_constraintTop_toTopOf="parent"
-            card_view:layout_constraintBottom_toBottomOf="parent"
-            card_view:cardCornerRadius="5dp"
-            card_view:layout_constraintVertical_bias="0.0"
-            card_view:layout_constraintHorizontal_bias="0.0"
-            tools:layout_constraintLeft_creator="1"
-            tools:layout_constraintTop_creator="1"
-            tools:layout_constraintRight_creator="1" android:layout_width="356dp" android:layout_weight="1.30"
-            android:layout_height="0dp">
-        <android.support.constraint.ConstraintLayout
+        <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                tools:layout_editor_absoluteY="8dp"
-                tools:layout_editor_absoluteX="6dp">
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-            <ImageButton
+            <TextView
+                    android:text="TextView"
                     android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textUsrMsg"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="@android:color/black"
+                    android:layout_marginTop="16dp" android:textAlignment="center"
+                    android:layout_gravity="center"/>
+            <TextView
+                    android:text="TextView"
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textCipherMsg"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textAlignment="center" android:layout_marginTop="16dp" android:layout_marginBottom="16dp"/>
+        </LinearLayout>
+        <View
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:background="#b6b6b6"
+                android:id="@+id/view"/>
+
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:id="@+id/linearLayout2"
+                android:layout_height="0dp">
+            <ImageButton
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content" card_view:srcCompat="@android:drawable/ic_menu_share"
                     android:id="@+id/imgBtnShare" android:elevation="5dp"
                     android:background="@android:color/transparent"
-                    card_view:layout_constraintBottom_toBottomOf="parent"
-                    android:layout_marginBottom="0dp" android:layout_marginRight="9dp"
-                    card_view:layout_constraintRight_toRightOf="parent" android:layout_marginEnd="8dp"
+                    android:layout_marginRight="15dp"
+                    card_view:layout_constraintRight_toRightOf="parent" android:layout_marginEnd="15dp"
                     android:tint="@android:color/black" android:paddingRight="8dp"
-                    android:paddingLeft="8dp" android:layout_marginTop="16dp"
-                    card_view:layout_constraintTop_toBottomOf="@+id/imgBtnClose"
-                    card_view:layout_constraintVertical_bias="0.523"
-                    android:contentDescription="@string/share_message"/>
+                    android:paddingLeft="8dp"
+                    android:contentDescription="@string/share_message"
+                    card_view:layout_constraintTop_toBottomOf="@+id/view"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="1" android:layout_marginTop="5dp"/>
             <ImageButton
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     card_view:srcCompat="@android:drawable/ic_menu_close_clear_cancel" android:id="@+id/imgBtnClose"
                     android:background="@android:color/transparent"
-                    card_view:layout_constraintTop_toTopOf="parent"
-                    android:layout_marginTop="8dp" android:layout_marginRight="16dp"
-                    card_view:layout_constraintRight_toRightOf="parent" android:tint="@android:color/black"
-                    android:layout_marginEnd="16dp" android:contentDescription="@string/remove_card"/>
-            <TextView
-                    android:text="TextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:id="@+id/textUsrMsg"
-                    card_view:layout_constraintTop_toTopOf="parent"
-                    android:layout_marginTop="16dp" android:layout_marginLeft="8dp"
-                    card_view:layout_constraintLeft_toLeftOf="parent" android:layout_marginRight="8dp"
-                    card_view:layout_constraintRight_toRightOf="parent"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="@android:color/black" card_view:layout_constraintHorizontal_bias="0.497"/>
-            <TextView
-                    android:text="TextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:id="@+id/textCipherMsg"
-                    android:layout_marginTop="32dp"
-                    card_view:layout_constraintTop_toBottomOf="@+id/textUsrMsg"
-                    card_view:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="8dp"
-                    android:layout_marginLeft="8dp" card_view:layout_constraintLeft_toLeftOf="parent"
-                    android:layout_marginRight="8dp" card_view:layout_constraintRight_toRightOf="parent"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    card_view:layout_constraintHorizontal_bias="0.497"
-                    card_view:layout_constraintVertical_bias="0.0" android:paddingBottom="10dp"
-            />
-        </android.support.constraint.ConstraintLayout>
-    </android.support.v7.widget.CardView>
-</LinearLayout>
+                    android:tint="@android:color/black"
+                    android:contentDescription="@string/remove_card"
+                    android:elevation="5dp"
+                    card_view:layout_constraintLeft_toLeftOf="parent"
+                    card_view:layout_constraintTop_toBottomOf="@+id/view"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginStart="20dp" android:layout_weight="1" android:layout_marginTop="5dp"/>
+        </LinearLayout>
+    </LinearLayout>
+</android.support.v7.widget.CardView>
