@@ -14,7 +14,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity
+public class MainActivity extends AppCompatActivity implements ShareHandler
 {
     private int userKey;
     private String userMsg;
@@ -53,8 +53,9 @@ public class MainActivity extends AppCompatActivity
 
         //Insert data
 
+
         // specify an adapter
-        mAdapter = new MyAdapter();
+        mAdapter = new MyAdapter(this);
         mRecyclerView.setAdapter(mAdapter);
 
         //Run button code.
@@ -65,11 +66,11 @@ public class MainActivity extends AppCompatActivity
             if (actionSpinner.getSelectedItem().equals(ciphers[0]))
             {
                 userMsgEncrypt = shiftCipher.cipher(userMsg, userKey);
-                makeToast(userMsgEncrypt);
+                MakeToast(userMsgEncrypt);
             } else if (actionSpinner.getSelectedItem().equals(ciphers[1]))
             {
                 userMsgDecrypt = shiftCipher.decipher(userMsg, userKey);
-                makeToast(userMsgDecrypt);
+                MakeToast(userMsgDecrypt);
             }
         });
     }
@@ -97,7 +98,12 @@ public class MainActivity extends AppCompatActivity
         return false;
     }
 
-    public void makeToast(String str)
+    public void ShareMessage(int i)
+    {
+
+    }
+
+    public void MakeToast(String str)
     {
         Context context = getApplicationContext();
         //CharSequence text = getString(res);
