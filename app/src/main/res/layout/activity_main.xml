@@ -106,10 +106,9 @@
     </android.support.design.widget.AppBarLayout>
     <android.support.v7.widget.RecyclerView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
             android:scrollbars="vertical"
-            android:id="@+id/recycleView" android:layout_weight="1"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+            android:id="@+id/recycleView"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            android:layout_height="wrap_content">
     </android.support.v7.widget.RecyclerView>
 </android.support.design.widget.CoordinatorLayout>
