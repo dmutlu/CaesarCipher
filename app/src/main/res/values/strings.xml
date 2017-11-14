@@ -8,4 +8,6 @@
     <string name="input_hint">Tap to enter message</string>
     <string name="run">Run</string>
     <string name="cipher_key">Cipher Key</string>
+    <string name="share_message">Share Message</string>
+    <string name="remove_card">Remove Card</string>
 </resources>
