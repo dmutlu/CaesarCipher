@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity implements ShareHandler
         /*CardView Setup*/
         RecyclerView mRecyclerView = findViewById(R.id.recycleView);
         RecyclerView.LayoutManager mLayoutManager;
-        RecyclerView.Adapter mAdapter;
+        MyAdapter mAdapter = new MyAdapter(this);
 
         // use this setting to improve performance if you know that changes
         // in content do not change the layout size of the RecyclerView
@@ -51,11 +51,7 @@ public class MainActivity extends AppCompatActivity implements ShareHandler
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        //Insert data
-
-
         // specify an adapter
-        mAdapter = new MyAdapter(this);
         mRecyclerView.setAdapter(mAdapter);
 
         //Run button code.
@@ -63,14 +59,20 @@ public class MainActivity extends AppCompatActivity implements ShareHandler
         {
             userMsg = inputText.getText().toString();
             userKey = Integer.parseInt(inputKey.getText().toString());
-            if (actionSpinner.getSelectedItem().equals(ciphers[0]))
+            if (inputText.getText().toString().isEmpty() && inputKey.getText().toString().isEmpty())
             {
-                userMsgEncrypt = shiftCipher.cipher(userMsg, userKey);
-                MakeToast(userMsgEncrypt);
-            } else if (actionSpinner.getSelectedItem().equals(ciphers[1]))
+                MakeToast("Empty.");
+            } else
             {
-                userMsgDecrypt = shiftCipher.decipher(userMsg, userKey);
-                MakeToast(userMsgDecrypt);
+                if (actionSpinner.getSelectedItem().equals(ciphers[0]))
+                {
+                    userMsgEncrypt = shiftCipher.cipher(userMsg, userKey);
+                    mAdapter.addMessage(new Message(userMsg,userMsgEncrypt));
+                } else if (actionSpinner.getSelectedItem().equals(ciphers[1]))
+                {
+                    userMsgDecrypt = shiftCipher.decipher(userMsg, userKey);
+                    mAdapter.addMessage(new Message(userMsg,userMsgDecrypt));
+                }
             }
         });
     }
