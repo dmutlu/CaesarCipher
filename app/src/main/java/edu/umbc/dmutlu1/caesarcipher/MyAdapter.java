@@ -36,8 +36,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>
         }
     }
 
+    /*Message Card Modifier Methods*/
     public void addMessage(Message message)
     {
+        //Index integer is used to place new cards on the top.
         dataSet.add(0, message);
         notifyDataSetChanged();
     }
@@ -53,7 +55,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>
         Intent share = new Intent();
 
         share.setAction(Intent.ACTION_SEND);
-        share.putExtra(Intent.EXTRA_SUBJECT, "Hey check out: ");
+        share.putExtra(Intent.EXTRA_SUBJECT, activity.getString(R.string.share_subject));
+        share.putExtra(Intent.EXTRA_TEXT, activity.getString(R.string.share_extra_key)
+                + dataSet.get(pos).getKey());
         share.putExtra(Intent.EXTRA_TEXT, dataSet.get(pos).getCipherMessage());
         share.setType("text/plain");
 
@@ -63,14 +67,17 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>
     // Provide a suitable constructor (depends on the kind of dataset)
     public MyAdapter(AppCompatActivity activity)
     {
+        //Used to provide context to the adapter on which activity is being called.
+        //In this case, the activity is MainActivity.
         this.activity = activity;
     }
 
     // Create new views (invoked by the layout manager)
     @Override
     public MyAdapter.ViewHolder onCreateViewHolder(ViewGroup parent,
-                                                   int viewType) {
-        // create a new view
+                                                   int viewType)
+    {
+        // Create a new view
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.cipher_card, parent, false);
 
@@ -79,20 +86,20 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>
 
     // Replace the contents of a view (invoked by the layout manager)
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(ViewHolder holder, int position)
+    {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
         holder.userMessage.setText(dataSet.get(position).getUserMessage());
         holder.cipherMessage.setText(dataSet.get(position).getCipherMessage());
-
         holder.btnDelete.setOnClickListener(view -> removeMessage(position));
         holder.btnShare.setOnClickListener(view -> shareMessage(position));
-
     }
 
     // Return the size of your dataset (invoked by the layout manager)
     @Override
-    public int getItemCount() {
+    public int getItemCount()
+    {
         return dataSet.size();
     }
 }

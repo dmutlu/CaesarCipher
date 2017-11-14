@@ -11,4 +11,6 @@
     <string name="share_message">Share Message</string>
     <string name="remove_card">Remove Card</string>
     <string name="toast_empty">Please enter a message and key.</string>
+    <string name="share_subject">My Encrypted Message</string>
+    <string name="share_extra_key">Use the key:</string>
 </resources>
