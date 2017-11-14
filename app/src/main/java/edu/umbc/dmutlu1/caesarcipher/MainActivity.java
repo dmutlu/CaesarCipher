@@ -27,11 +27,16 @@ public class MainActivity extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //Declare and instantiate Charlie's ShiftCipher code.
         ShiftCipher shiftCipher = new ShiftCipher();
+
         Spinner actionSpinner = findViewById(R.id.cipherSpinner);
         EditText inputText = findViewById(R.id.inputText);
         EditText inputKey = findViewById(R.id.inputKey);
         Button btnCipher = findViewById(R.id.button);
+
+        //Put the XML string array and place it into a String Array object.
         ciphers = getResources().getStringArray(R.array.ciphers);
 
         /*Main Activity Toolbar*/
@@ -57,25 +62,33 @@ public class MainActivity extends AppCompatActivity
         //Run button code.
         btnCipher.setOnClickListener(view ->
         {
+            //Hold users message.
             userMsg = inputText.getText().toString();
 
             if (inputText.getText().toString().isEmpty() || inputKey.getText().toString().isEmpty())
             {
-                makeToast("Empty.");
+                //If any inputs are empty, prompt user.
+                makeToast(R.string.toast_empty);
             } else
             {
+                //Grab and store the inputted cipher key.
                 userKey = Integer.parseInt(inputKey.getText().toString());
 
+                //If cipher is selected, encrypt message.
                 if (actionSpinner.getSelectedItem().equals(ciphers[0]))
                 {
                     userMsgEncrypt = shiftCipher.cipher(userMsg, userKey);
 
-                    mAdapter.addMessage(new Message(userMsg,userMsgEncrypt, userKey));
-                } else if (actionSpinner.getSelectedItem().equals(ciphers[1]))
+                    //Send a new message to RecycleView MyAdapter.
+                    mAdapter.addMessage(new Message(userMsg, userMsgEncrypt, userKey));
+                }
+                //If Decipher is selected, decrypt message.
+                else if (actionSpinner.getSelectedItem().equals(ciphers[1]))
                 {
                     userMsgDecrypt = shiftCipher.decipher(userMsg, userKey);
 
-                    mAdapter.addMessage(new Message(userMsg,userMsgDecrypt, userKey));
+                    //Send a new message to RecycleView MyAdapter.
+                    mAdapter.addMessage(new Message(userMsg, userMsgDecrypt, userKey));
                 }
             }
         });
@@ -89,11 +102,14 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
+    /*Popup Item Selection*/
     @Override
     public boolean onOptionsItemSelected(MenuItem item)
     {
+        //Get the Id of the popup menu item.
         switch (item.getItemId())
         {
+            //Start the AboutActivity when 'About' is selected.
             case R.id.action_about:
             {
                 startActivity(new Intent(this, AboutActivity.class));
@@ -104,11 +120,11 @@ public class MainActivity extends AppCompatActivity
         return false;
     }
 
-    public void makeToast(String str)
+    /*Toaster*/
+    public void makeToast(int res)
     {
         Context context = getApplicationContext();
-        //CharSequence text = getString(res);
-        CharSequence text = str;
+        CharSequence text = getString(res);
         int duration = Toast.LENGTH_SHORT;
 
         Toast toast = Toast.makeText(context, text, duration);

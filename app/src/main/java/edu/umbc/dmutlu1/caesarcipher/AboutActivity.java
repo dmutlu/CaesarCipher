@@ -13,6 +13,7 @@ public class AboutActivity extends AppCompatActivity
         setContentView(R.layout.activity_about);
     }
 
+    //Plays an exit animation when the user presses the back button.
     public void onBackPressed()
     {
         super.onBackPressed();
