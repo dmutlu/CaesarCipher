@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>
+public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder>
 {
     private ArrayList<Message> dataSet = new ArrayList<>();
     private final AppCompatActivity activity;
@@ -66,7 +66,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>
     }
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public MyAdapter(AppCompatActivity activity)
+    public RecyclerAdapter(AppCompatActivity activity)
     {
         //Used to provide context to the adapter on which activity is being called.
         //In this case, the activity is MainActivity.
@@ -75,8 +75,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>
 
     // Create new views (invoked by the layout manager)
     @Override
-    public MyAdapter.ViewHolder onCreateViewHolder(ViewGroup parent,
-                                                   int viewType)
+    public RecyclerAdapter.ViewHolder onCreateViewHolder(ViewGroup parent,
+                                                         int viewType)
     {
         // Create a new view
         View view = LayoutInflater.from(parent.getContext())

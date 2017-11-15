@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity
         /*CardView Setup*/
         RecyclerView mRecyclerView = findViewById(R.id.recycleView);
         RecyclerView.LayoutManager mLayoutManager;
-        MyAdapter mAdapter = new MyAdapter(this);
+        RecyclerAdapter mAdapter = new RecyclerAdapter(this);
 
         mAdapter.setHasStableIds(true);
 
@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity
                 {
                     userMsgEncrypt = shiftCipher.cipher(userMsg, userKey);
 
-                    //Send a new message to RecycleView MyAdapter.
+                    //Send a new message to RecycleView RecyclerAdapter.
                     mAdapter.addMessage(new Message(userMsg, userMsgEncrypt, userKey));
                 }
                 //If Decipher is selected, decrypt message.
@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity
                 {
                     userMsgDecrypt = shiftCipher.decipher(userMsg, userKey);
 
-                    //Send a new message to RecycleView MyAdapter.
+                    //Send a new message to RecycleView RecyclerAdapter.
                     mAdapter.addMessage(new Message(userMsg, userMsgDecrypt, userKey));
                 }
             }
