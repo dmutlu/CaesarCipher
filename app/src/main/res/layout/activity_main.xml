@@ -14,7 +14,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:toolbarId="@+id/toolbar"
-                app:layout_scrollFlags="scroll"
+                app:layout_scrollFlags="scroll|enterAlwaysCollapsed"
                 app:contentScrim="@color/colorPrimary"
                 app:titleEnabled="false">
 
@@ -31,7 +31,7 @@
                         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
                         tools:layout_editor_absoluteY="211dp"
                         tools:layout_editor_absoluteX="8dp"
-                        app:layout_collapseMode="pin" android:layout_weight="1">
+                        android:layout_weight="1">
                 </android.support.v7.widget.Toolbar>
                 <android.support.constraint.ConstraintLayout
                         android:layout_width="match_parent"
