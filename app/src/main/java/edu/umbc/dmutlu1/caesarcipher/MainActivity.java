@@ -34,7 +34,8 @@ public class MainActivity extends AppCompatActivity
         Spinner actionSpinner = findViewById(R.id.cipherSpinner);
         EditText inputText = findViewById(R.id.inputText);
         EditText inputKey = findViewById(R.id.inputKey);
-        Button btnCipher = findViewById(R.id.button);
+        Button btnCipher = findViewById(R.id.btnRun);
+        Button btnClear = findViewById(R.id.btnClear);
 
         //Put the XML string array and place it into a String Array object.
         ciphers = getResources().getStringArray(R.array.ciphers);
@@ -94,6 +95,8 @@ public class MainActivity extends AppCompatActivity
                 }
             }
         });
+
+        btnClear.setOnClickListener(view -> inputText.getText().clear());
     }
 
     /*Toolbar Overflow Menu*/
