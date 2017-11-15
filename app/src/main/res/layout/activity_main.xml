@@ -14,7 +14,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:toolbarId="@+id/toolbar"
-                app:layout_scrollFlags="scroll"
+                app:layout_scrollFlags="scroll|enterAlwaysCollapsed"
                 app:contentScrim="@color/colorPrimary"
                 app:titleEnabled="false">
 
@@ -31,14 +31,15 @@
                         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
                         tools:layout_editor_absoluteY="211dp"
                         tools:layout_editor_absoluteX="8dp"
-                        app:layout_collapseMode="pin" android:layout_weight="1">
+                        android:layout_weight="1">
                 </android.support.v7.widget.Toolbar>
-                <android.support.constraint.ConstraintLayout
+                <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@color/cardview_light_background"
                         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-                        android:layout_weight="1">
+                        android:layout_weight="1" android:gravity="center"
+                        android:orientation="vertical">
 
                     <LinearLayout
                             android:orientation="horizontal"
@@ -72,12 +73,13 @@
                         />
                     </LinearLayout>
                     <View
-                            android:layout_width="0dp"
+                            android:layout_width="match_parent"
                             android:layout_height="1dp"
                             android:background="#b6b6b6"
                             android:id="@+id/view"
                             tools:layout_editor_absoluteX="0dp"
-                            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/linearLayout"/>
+                            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+                    />
                     <EditText
                             android:layout_width="310dp"
                             android:layout_height="98dp"
@@ -89,18 +91,39 @@
                             android:inputType="textMultiLine"
                             android:imeOptions="actionDone"
                             app:layout_constraintTop_toBottomOf="@+id/view"
-                            android:hint="@string/input_hint"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginTop="-2dp"/>
-                    <Button
-                            android:text="@string/run"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" android:id="@+id/button"
-                            app:layout_constraintLeft_toLeftOf="parent"
-                            app:layout_constraintRight_toRightOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/inputText"
-                            android:layout_below="@+id/inputText" android:layout_centerHorizontal="true"/>
-                </android.support.constraint.ConstraintLayout>
+                            android:hint="@string/input_hint"/>
+                    <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center" android:id="@+id/buttonBar">
+                        <Button
+                                android:text="@string/clear"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" android:id="@+id/btnClear"
+                                tools:layout_editor_absoluteY="158dp" android:layout_marginRight="40dp"
+                                app:layout_constraintRight_toRightOf="parent" android:layout_marginLeft="8dp"
+                                app:layout_constraintLeft_toLeftOf="parent"
+                                app:layout_constraintHorizontal_bias="0.792"
+                                android:background="@color/colorPrimary"
+                                android:textColor="?android:attr/textColorPrimaryInverse"
+                                android:layout_marginEnd="40dp" android:layout_marginStart="8dp"
+                                android:layout_marginTop="2dp" android:layout_marginBottom="2dp"/>
+                        <Button
+                                android:text="@string/run"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" android:id="@+id/btnRun"
+                                app:layout_constraintLeft_toLeftOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/inputText"
+                                app:layout_constraintRight_toLeftOf="@+id/btnClear"
+                                android:layout_marginLeft="40dp"
+                                android:layout_marginRight="8dp"
+                                android:background="?android:attr/colorButtonNormal"
+                                android:layout_marginStart="40dp"
+                                android:layout_marginEnd="8dp"
+                                android:layout_marginBottom="2dp" android:layout_marginTop="2dp"/>
+                    </LinearLayout>
+                </LinearLayout>
             </LinearLayout>
         </android.support.design.widget.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>

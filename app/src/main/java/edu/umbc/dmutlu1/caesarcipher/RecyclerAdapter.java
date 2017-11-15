@@ -1,5 +1,8 @@
 package edu.umbc.dmutlu1.caesarcipher;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
@@ -8,10 +11,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>
+public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder>
 {
     private ArrayList<Message> dataSet = new ArrayList<>();
     private final AppCompatActivity activity;
@@ -25,6 +29,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>
         final TextView cipherMessage;
         final ImageButton btnDelete;
         final ImageButton btnShare;
+        final ImageButton btnCopy;
 
         public ViewHolder(View v)
         {
@@ -33,10 +38,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>
             this.cipherMessage = itemView.findViewById(R.id.textCipherMsg);
             this.btnDelete = itemView.findViewById(R.id.imgBtnClose);
             this.btnShare = itemView.findViewById(R.id.imgBtnShare);
+            this.btnCopy = itemView.findViewById(R.id.imgBtnCopy);
         }
     }
 
-    /*Message Card Modifier Methods*/
+    /*Message Card Action Methods*/
     public void addMessage(Message message)
     {
         //Index integer is used to place new cards on the top.
@@ -65,8 +71,26 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>
         activity.startActivity(Intent.createChooser(share, "Send Cipher Message"));
     }
 
+    private void copyMessage(int pos)
+    {
+        // Gets a handle to the clipboard service.
+        ClipboardManager clipboard = (ClipboardManager)
+                activity.getSystemService(Context.CLIPBOARD_SERVICE);
+
+        // Creates a new text clip to put on the clipboard
+        ClipData clip = ClipData.newPlainText(activity.getString(R.string.share_subject),
+                dataSet.get(pos).getCipherMessage());
+
+        //Notifies user that message is now in their devices clipboard.
+        Toast toast = Toast.makeText(activity, activity.getString(R.string.toast_copy), Toast.LENGTH_SHORT);
+        toast.show();
+
+        // Set the clipboard's primary clip.
+        clipboard.setPrimaryClip(clip);
+    }
+
     // Provide a suitable constructor (depends on the kind of dataset)
-    public MyAdapter(AppCompatActivity activity)
+    public RecyclerAdapter(AppCompatActivity activity)
     {
         //Used to provide context to the adapter on which activity is being called.
         //In this case, the activity is MainActivity.
@@ -75,8 +99,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>
 
     // Create new views (invoked by the layout manager)
     @Override
-    public MyAdapter.ViewHolder onCreateViewHolder(ViewGroup parent,
-                                                   int viewType)
+    public RecyclerAdapter.ViewHolder onCreateViewHolder(ViewGroup parent,
+                                                         int viewType)
     {
         // Create a new view
         View view = LayoutInflater.from(parent.getContext())
@@ -95,6 +119,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>
         holder.cipherMessage.setText(dataSet.get(position).getCipherMessage());
         holder.btnDelete.setOnClickListener(view -> removeMessage(position));
         holder.btnShare.setOnClickListener(view -> shareMessage(position));
+        holder.btnCopy.setOnClickListener(view -> copyMessage(position));
     }
 
     // Return the size of your dataset (invoked by the layout manager)
