@@ -1,5 +1,9 @@
 package edu.umbc.dmutlu1.caesarcipher;
 
+/**
+ * A simple shift cipher that ciphers text based off a given shift
+ */
+
 public class ShiftCipher
 {
     public String cipher(String msg, int shift)
