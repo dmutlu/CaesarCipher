@@ -8,7 +8,7 @@ public class ShiftCipher
 {
     public String cipher(String msg, int shift)
     {
-        int key = shift % 26 + 26; //Sets key according to shift.
+        int key = shift % 95 + 95; //Sets key according to shift.
 
         //Implemented StringBuilder because it is faster and more efficient.
         StringBuilder encryptedMsg = new StringBuilder();
@@ -21,22 +21,22 @@ public class ShiftCipher
             {
                 if (Character.isUpperCase(i))
                 {
-                    encryptedMsg.append((char) (((i - 65 + key) % 26) + 65)); //65 is A in ASCII
+                    encryptedMsg.append((char) (((i - 65 + key) % 95) + 65)); //65 is A in ASCII
                 } else
                 {
-                    encryptedMsg.append((char) (((i - 97 + key) % 26) + 97));
+                    encryptedMsg.append((char) (((i - 97 + key) % 95) + 97));
                 } //97 is a in ASCII
-
-            } else
-                {
-                    encryptedMsg.append(i);
-                }
+            }
+            else
+            {
+                encryptedMsg.append((char) (((i - 33 + key) % 95) + 33));
+            }
         }
         return encryptedMsg.toString();
     }
 
     public String decipher(String msg, int key)
     {
-        return cipher(msg, 26 - key);
+        return cipher(msg, 95 - key);
     }
 }
