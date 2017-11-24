@@ -115,7 +115,7 @@ public class MainActivity extends AppCompatActivity
         //Get the Id of the popup menu item.
         switch (item.getItemId())
         {
-            //Start the AboutActivity when 'About' is selected.
+            //Start the TeamActivity when 'About' is selected.
             case R.id.action_about:
             {
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://en.wikipedia.org/wiki/Caesar_cipher")));
@@ -124,7 +124,7 @@ public class MainActivity extends AppCompatActivity
 
             case R.id.action_team:
             {
-                startActivity(new Intent(this, AboutActivity.class));
+                startActivity(new Intent(this, TeamActivity.class));
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                 break;
             }
