@@ -2,6 +2,7 @@ package edu.umbc.dmutlu1.caesarcipher;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -116,6 +117,12 @@ public class MainActivity extends AppCompatActivity
         {
             //Start the AboutActivity when 'About' is selected.
             case R.id.action_about:
+            {
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://en.wikipedia.org/wiki/Caesar_cipher")));
+                break;
+            }
+
+            case R.id.action_team:
             {
                 startActivity(new Intent(this, AboutActivity.class));
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
