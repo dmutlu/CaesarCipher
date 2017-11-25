@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         //Declare and instantiate Charlie's ShiftCipher code.
         ShiftCipher shiftCipher = new ShiftCipher();
 
@@ -48,6 +49,8 @@ public class MainActivity extends AppCompatActivity
         RecyclerView mRecyclerView = findViewById(R.id.recycleView);
         RecyclerView.LayoutManager mLayoutManager;
         RecyclerAdapter mAdapter = new RecyclerAdapter(this);
+
+        mRecyclerView.setNestedScrollingEnabled(true);
 
         mAdapter.setHasStableIds(true);
 
