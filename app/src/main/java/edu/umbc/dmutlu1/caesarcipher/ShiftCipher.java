@@ -1,10 +1,16 @@
 package edu.umbc.dmutlu1.caesarcipher;
 
+/**
+ * A simple shift cipher that ciphers text based off a given shift
+ */
+
 public class ShiftCipher
 {
+
     public String cipher(String msg, int shift)
     {
-        int key = shift % 26 + 26; //Sets key according to shift.
+
+        int key = shift % 26 + 26;
 
         //Implemented StringBuilder because it is faster and more efficient.
         StringBuilder encryptedMsg = new StringBuilder();
@@ -22,11 +28,11 @@ public class ShiftCipher
                 {
                     encryptedMsg.append((char) (((i - 97 + key) % 26) + 97));
                 } //97 is a in ASCII
-
-            } else
-                {
-                    encryptedMsg.append(i);
-                }
+            }
+            else
+            {
+                encryptedMsg.append(i);
+            }
         }
         return encryptedMsg.toString();
     }
