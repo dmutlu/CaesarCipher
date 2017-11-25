@@ -2,8 +2,8 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
 <item android:drawable="@color/colorPrimaryDark"/>
 
-    <item android:drawable="@drawable/web_ic_launcher"
+    <item android:drawable="@drawable/caesar_splash"
           android:gravity="center"
-          android:height="300dp"
-          android:width="300dp"/>
+          android:height="310dp"
+          android:width="310dp"/>
 </layer-list>
