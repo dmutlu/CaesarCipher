@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+<item android:drawable="@color/colorPrimaryDark"/>
+
+    <item android:drawable="@drawable/caesar_splash"
+          android:gravity="center"
+          android:height="310dp"
+          android:width="310dp"/>
+</layer-list>

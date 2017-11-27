@@ -2,6 +2,7 @@ package edu.umbc.dmutlu1.caesarcipher;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         //Declare and instantiate Charlie's ShiftCipher code.
         ShiftCipher shiftCipher = new ShiftCipher();
 
@@ -48,6 +50,8 @@ public class MainActivity extends AppCompatActivity
         RecyclerView mRecyclerView = findViewById(R.id.recycleView);
         RecyclerView.LayoutManager mLayoutManager;
         RecyclerAdapter mAdapter = new RecyclerAdapter(this);
+
+        mRecyclerView.setNestedScrollingEnabled(true);
 
         mAdapter.setHasStableIds(true);
 
@@ -114,10 +118,16 @@ public class MainActivity extends AppCompatActivity
         //Get the Id of the popup menu item.
         switch (item.getItemId())
         {
-            //Start the AboutActivity when 'About' is selected.
+            //pulls up wiki on Caesar Cipher when 'About' is selected
             case R.id.action_about:
             {
-                startActivity(new Intent(this, AboutActivity.class));
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://en.wikipedia.org/wiki/Caesar_cipher")));
+                break;
+            }
+            //Start the TeamActivity when 'Team' is selected.
+            case R.id.action_team:
+            {
+                startActivity(new Intent(this, TeamActivity.class));
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                 break;
             }
