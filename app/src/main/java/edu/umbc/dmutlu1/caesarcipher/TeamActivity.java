@@ -2,6 +2,9 @@ package edu.umbc.dmutlu1.caesarcipher;
 
 import android.content.Context;
 import android.content.res.Resources;
+import android.os.Build;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.animation.Animation;
@@ -37,6 +40,8 @@ public class TeamActivity extends AppCompatActivity
                 if (eggCounter >= 4 && eggCounter < 6)
                 {
                     Resources res = getResources();
+                    Vibrator vibrator = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
+                    VibrationEffect vibrationEffect;
 
                     //Grab our plurals for the countdown hints.
                     String text = res.getQuantityString(R.plurals.easter_toast, eggDisplay, eggDisplay);
@@ -45,6 +50,18 @@ public class TeamActivity extends AppCompatActivity
                     toast = Toast.makeText(context, text, duration);
                     toast.show();
 
+                    //Check to see if the device has a vibrator and uses Android API 26.
+                    if(vibrator.hasVibrator() && Build.VERSION.SDK_INT == 26)
+                    {
+                        vibrationEffect =
+                                VibrationEffect.createOneShot(500, VibrationEffect.DEFAULT_AMPLITUDE);
+                        vibrator.vibrate(vibrationEffect);
+                    }
+                    //Same as above but use compatible/deprecated code for lower API versions.
+                    else if (vibrator.hasVibrator() && Build.VERSION.SDK_INT <= 25)
+                    {
+                        vibrator.vibrate(500);
+                    }
                     eggDisplay--;
                 }
             }
