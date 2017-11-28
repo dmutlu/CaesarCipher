@@ -17,4 +17,13 @@
     <string name="share_extra_key">Use the key:</string>
     <string name="clear">Clear</string>
     <string name="toast_copy">Message Copied</string>
+    <string name="toast_reveal">Salad anyone?</string>
+
+    <!-- String Plurals. -->
+    <plurals name="easter_toast">
+        <item quantity="one">You are now %d press from revealing the easter egg.</item>
+        <item quantity="two">You are now %d presses from revealing the easter egg.</item>
+        <item quantity="few">You are now %d presses from revealing the easter egg.</item>
+        <item quantity="other">You are now %d presses from revealing the easter egg.</item>
+    </plurals>
 </resources>
